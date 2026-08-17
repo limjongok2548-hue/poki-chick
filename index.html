@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poki Chick | Yeonnam-dong, Seoul</title>
+<meta name="description" content="Poki Chick — a sandwich shop in Yeonnam-dong, Seoul. Everything is Korean spicy by default.">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#F4F3EF;
+    --ink:#181512;
+    --ink-dim:#6E6960;
+    --hair:rgba(24,21,18,0.12);
+    --accent:#A8332B;
+    --casual-accent:#FF6A3D;
+    --hero-ink:#181512;
+    --hero-dim:#6E6960;
+    --display: "Century Gothic","Futura","Avenir Next",Avenir,"Helvetica Neue",Arial,sans-serif;
+    --sans: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    --casual: "Arial Black","Helvetica Neue",Impact,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Marquee ---------- */
+  .marquee{
+    width:100%;overflow:hidden;
+    background:#FCE6EB;
+    padding:6px 0;
+  }
+  .marquee-track{
+    display:flex;width:max-content;
+    animation:marquee 22s linear infinite;
+  }
+  .marquee-track span.word{
+    font-family:var(--sans);
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    padding:0 18px;
+    white-space:nowrap;
+  }
+  .marquee-track span.word-white{color:var(--ink);}
+  .marquee-track span.word-yellow{color:var(--casual-accent);}
+  @keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .marquee-track{animation:none;overflow-x:auto;}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:absolute;top:0;left:0;right:0;z-index:50;
+    padding:28px 0;
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:1160px;margin:0 auto;padding:0 32px;
+  }
+  .logo{
+    font-family:var(--display);
+    font-size:14px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--hero-ink);
+  }
+  .nav-links{display:flex;align-items:center;gap:34px;list-style:none;}
+  .nav-links a{
+    font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--hero-dim);transition:color .25s;
+  }
+  .nav-links a:hover{color:var(--hero-ink);}
+  .nav-ig{opacity:0.85;transition:opacity .25s;}
+  .nav-ig:hover{opacity:1;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    isolation:isolate;
+    min-height:100vh;
+    display:flex;align-items:flex-end;
+    /* 지금은 연한 핑크 단색 배경이에요. 나중에 매장 사진을 넣고 싶으면
+       아래 background를 다음처럼 바꾸세요:
+       background: linear-gradient(180deg, rgba(24,21,18,0.15) 0%, rgba(24,21,18,0.75) 78%, rgba(24,21,18,0.95) 100%), url('사진경로.jpg');
+       background-size:cover; background-position:center;
+       그리고 위쪽 --hero-ink / --hero-dim 색상을 다시 밝은 톤으로 되돌려야
+       사진 위에서 글씨가 잘 보여요. */
+    background:#FEF4F6;
+    background-size:cover;
+    background-position:center;
+  }
+  .hero-inner{
+    position:relative;z-index:2;width:100%;
+    max-width:1160px;margin:0 auto;padding:0 32px 72px;
+  }
+  h1.brand{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(40px,7vw,80px);
+    line-height:1.08;
+    letter-spacing:0.5px;
+    color:var(--hero-ink);
+    margin-bottom:18px;
+  }
+  h1.brand .accent{
+    color:#D9695F;
+    font-size:0.45em;
+    display:inline-block;
+    margin-top:6px;
+  }
+  .hero-addr{
+    font-size:14px;color:var(--hero-dim);
+    letter-spacing:0.4px;margin-bottom:28px;
+    text-transform:uppercase;
+  }
+  .hero-links{
+    display:flex;flex-wrap:wrap;gap:10px 14px;
+    font-size:13px;letter-spacing:0.5px;text-transform:uppercase;
+    color:var(--hero-dim);
+    border-top:1px solid rgba(24,21,18,0.15);
+    padding-top:22px;
+  }
+  .hero-links a{color:var(--hero-ink);}
+  .hero-links a:hover{color:#D9695F;}
+  .hero-links .dot{color:var(--hero-dim);}
+
+  /* ---------- Section shared ---------- */
+  section{padding:120px 0;}
+  .eyebrow{
+    font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--accent);margin-bottom:16px;text-align:center;
+  }
+  h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(28px,4.5vw,42px);
+    letter-spacing:0.3px;
+    color:var(--ink);text-align:center;
+  }
+
+  /* ---------- About ---------- */
+  .about{text-align:center;}
+  .about p{
+    font-family:var(--sans);
+    font-size:clamp(17px,2vw,20px);
+    color:var(--ink-dim);
+    max-width:600px;margin:28px auto 0;
+    line-height:1.7;
+  }
+  .about p .accent{color:var(--accent);}
+
+  /* ---------- Menu ---------- */
+  .menu{background:var(--bg-soft);}
+  .menu-head{margin-bottom:64px;}
+  .menu-list{max-width:680px;margin:0 auto;}
+  .menu-item{
+    padding:32px 0;
+    border-bottom:1px solid var(--hair);
+  }
+  .menu-item:first-child{border-top:1px solid var(--hair);}
+  .menu-item-top{
+    display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  }
+  .menu-item h3{
+    font-family:var(--display);font-weight:400;
+    font-size:22px;letter-spacing:0.3px;color:var(--ink);
+  }
+  .menu-item .price{
+    font-family:var(--sans);
+    font-size:15px;color:var(--ink-dim);white-space:nowrap;
+  }
+  .menu-item p.desc{
+    font-size:15px;color:var(--ink-dim);margin-top:10px;max-width:52ch;
+  }
+
+  /* ---------- Visit / Footer ---------- */
+  footer{padding:110px 0 48px;}
+  .visit-inner{text-align:center;}
+  .visit-inner .addr{
+    font-family:var(--display);font-size:20px;letter-spacing:0.3px;color:var(--ink);
+    margin-top:20px;
+  }
+  .visit-links{
+    display:flex;justify-content:center;gap:26px;flex-wrap:wrap;
+    margin-top:26px;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;
+  }
+  .visit-links a{color:var(--ink-dim);border-bottom:1px solid transparent;}
+  .visit-links a:hover{color:var(--ink);border-color:var(--accent);}
+  .copyline{
+    margin-top:80px;text-align:center;
+    font-size:12px;color:var(--ink-dim);letter-spacing:0.5px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:640px){
+    header{padding:22px 0;}
+    .nav{padding:0 22px;}
+    .nav-links{gap:18px;}
+    .hero-inner{padding:0 22px 52px;}
+    .hero-links{gap:8px 12px;}
+    section{padding:80px 0;}
+    .menu-item-top{flex-direction:column;gap:6px;}
+    .wrap{padding:0 22px;}
+  }
+  @media (max-width:420px){
+    .nav-links li:nth-child(2),.nav-links li:nth-child(3){display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ MARQUEE ============
+     장식용 반복 타이틀 바입니다. 문구를 바꾸려면 두 .marquee-track 블록
+     (루프가 자연스럽도록 동일한 내용이 두 번 반복돼요) 안의 텍스트를 수정하세요. -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="word word-white">Poki Chick</span>
+    <span class="word word-yellow">Poki Chick</span>
+    <span class="word word-white">Poki Chick</span>
+    <span class="word word-yellow">Poki Chick</span>
+    <span class="word word-white">Poki Chick</span>
+    <span class="word word-yellow">Poki Chick</span>
+    <span class="word word-white">Poki Chick</span>
+    <span class="word word-yellow">Poki Chick</span>
+  </div>
+</div>
+
+<!-- ============ HERO ============
+     실제 매장 사진을 넣으려면 .hero 의 background 규칙에서
+     radial-gradient(...) 부분을 url('사진경로.jpg') 로 바꾸고
+     background-size:cover 는 그대로 두세요. -->
+<section class="hero">
+  <header>
+    <div class="nav">
+      <div class="logo">Poki Chick</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a class="nav-ig" href="https://instagram.com/poki.chick.seoul" target="_blank" rel="noopener" aria-label="Instagram">IG</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="hero-inner">
+    <h1 class="brand">Poki Chick 🐤🏠<br><span class="accent">Korean spicy by default</span></h1>
+    <div class="hero-addr">30-3, Seongmisan-ro 29-gil, Yeonnam-dong, Mapo-gu, Seoul</div>
+    <div class="hero-links">
+      <a href="#about">About</a><span class="dot">·</span>
+      <a href="#menu">Menu</a><span class="dot">·</span>
+      <a href="#visit">Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about">
+    <div class="eyebrow">About</div>
+    <h2>A small sandwich shop in Yeonnam-dong</h2>
+    <p>At Poki Chick, Korean spicy isn't an option — it's the default. Crisp fried chicken, a rich gochujang-based sauce, and a heat that lingers. <span class="accent">Everything is Korean spicy by default.</span></p>
+  </div>
+</section>
+
+<!-- ============ MENU ============
+     가격은 placeholder로 넣어뒀어요. "Add price" 부분을 실제 가격으로 바꿔주세요. -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div class="eyebrow">Menu</div>
+      <h2>Everything's Korean Spicy</h2>
+    </div>
+    <div class="menu-list">
+
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <h3>Spicy Chicken Sandwich</h3>
+          <div class="price">Add price</div>
+        </div>
+        <p class="desc">Crisp chicken fillet with our signature hot sauce.</p>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <h3>Mapa Tofu Sandwich</h3>
+          <div class="price">Add price</div>
+        </div>
+        <p class="desc">Numbing mapo sauce with silky tofu.</p>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <h3>Cheese Chicken Sandwich</h3>
+          <div class="price">Add price</div>
+        </div>
+        <p class="desc">Melted cheese with our classic hot sauce.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT / CONTACT ============ -->
+<footer id="visit">
+  <div class="wrap visit-inner">
+    <div class="eyebrow">Visit</div>
+    <h2>Find Us</h2>
+    <div class="addr">30-3, Seongmisan-ro 29-gil<br>Yeonnam-dong, Mapo-gu, Seoul</div>
+    <div class="visit-links">
+      <a href="https://www.google.com/maps/search/?api=1&query=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EB%A7%88%ED%8F%AC%EA%B5%AC+%EC%97%B0%EB%82%A8%EB%8F%99+%EC%84%B1%EB%AF%B8%EC%82%B0%EB%A1%9C+29%EA%B8%B8+30-3" target="_blank" rel="noopener">Get Directions</a>
+      <a href="https://instagram.com/poki.chick.seoul" target="_blank" rel="noopener">@poki.chick.seoul</a>
+      <a href="#" aria-disabled="true">poki_chick@ (domain pending)</a>
+    </div>
+    <div class="copyline">© 2026 Poki Chick — Everything is Korean spicy by default.</div>
+  </div>
+</footer>
+
+</body>
+</html>
