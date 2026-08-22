@@ -160,16 +160,31 @@
     line-height:1.7;
   }
   .about p .accent{color:var(--accent);}
+  .about-illustration{
+    max-width:280px;margin:44px auto 0;
+  }
+  .about-illustration img{
+    width:100%;display:block;
+    transform:rotate(-3deg);
+    filter:drop-shadow(0 14px 24px rgba(24,21,18,0.12));
+  }
 
   /* ---------- Menu ---------- */
   .menu{background:var(--bg-soft);}
   .menu-head{margin-bottom:64px;}
   .menu-list{max-width:680px;margin:0 auto;}
+  .menu-category{
+    font-family:var(--sans);
+    font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--accent);
+    border-top:1px solid var(--hair);
+    padding-top:28px;margin-top:44px;
+  }
+  .menu-category:first-child{border-top:none;padding-top:0;margin-top:0;}
   .menu-item{
     padding:32px 0;
     border-bottom:1px solid var(--hair);
   }
-  .menu-item:first-child{border-top:1px solid var(--hair);}
   .menu-item-top{
     display:flex;justify-content:space-between;align-items:baseline;gap:20px;
   }
@@ -186,7 +201,19 @@
   }
 
   /* ---------- Visit / Footer ---------- */
-  footer{padding:110px 0 48px;}
+  footer{
+    position:relative;
+    padding:110px 0 48px;
+    overflow:visible;
+  }
+  .footer-illustration{
+    position:absolute;
+    top:-72px;left:50%;
+    transform:translateX(-50%) rotate(4deg);
+    width:170px;
+    filter:drop-shadow(0 16px 26px rgba(24,21,18,0.16));
+    z-index:5;
+  }
   .visit-inner{text-align:center;}
   .visit-inner .addr{
     font-family:var(--display);font-size:20px;letter-spacing:0.3px;color:var(--ink);
@@ -213,6 +240,7 @@
     section{padding:80px 0;}
     .menu-item-top{flex-direction:column;gap:6px;}
     .wrap{padding:0 22px;}
+    .footer-illustration{width:120px;top:-52px;}
   }
   @media (max-width:420px){
     .nav-links li:nth-child(2),.nav-links li:nth-child(3){display:none;}
@@ -270,6 +298,9 @@
     <div class="eyebrow">About</div>
     <h2>A small sandwich shop in Yeonnam-dong</h2>
     <p>At Poki Chick, Korean spicy isn't an option — it's the default. Crisp fried chicken, a rich gochujang-based sauce, and a heat that lingers. <span class="accent">Everything is Korean spicy by default.</span></p>
+    <div class="about-illustration">
+      <img src="images/chick-doodle.jpg" alt="Hand-drawn illustration of the Poki Chick mascot with a burger and a glass of wine">
+    </div>
   </div>
 </section>
 
@@ -279,32 +310,73 @@
   <div class="wrap">
     <div class="menu-head">
       <div class="eyebrow">Menu</div>
-      <h2>Everything's Korean Spicy</h2>
+      <h2>Menu</h2>
+      <p style="text-align:center;color:var(--ink-dim);font-size:14px;margin-top:10px;letter-spacing:0.3px;">Korean spicy by default</p>
     </div>
     <div class="menu-list">
 
+      <div class="menu-category">Burgers</div>
+
       <div class="menu-item">
         <div class="menu-item-top">
-          <h3>Spicy Chicken Sandwich</h3>
-          <div class="price">Add price</div>
+          <h3>Spicy Chicken Burger</h3>
+          <div class="price">₩9,500</div>
         </div>
         <p class="desc">Crisp chicken fillet with our signature hot sauce.</p>
       </div>
 
       <div class="menu-item">
         <div class="menu-item-top">
-          <h3>Mapa Tofu Sandwich</h3>
-          <div class="price">Add price</div>
+          <h3>Mapa Tofu Burger</h3>
+          <div class="price">₩9,500</div>
         </div>
         <p class="desc">Numbing mapo sauce with silky tofu.</p>
       </div>
 
+      <div class="menu-category">Combos</div>
+
       <div class="menu-item">
         <div class="menu-item-top">
-          <h3>Cheese Chicken Sandwich</h3>
-          <div class="price">Add price</div>
+          <h3>Burger Combo</h3>
+          <div class="price">₩13,500</div>
         </div>
-        <p class="desc">Melted cheese with our classic hot sauce.</p>
+        <p class="desc">Any burger, paired with a side of spicy cajun fries.</p>
+      </div>
+
+      <div class="menu-category">Sides</div>
+
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <h3>Fries</h3>
+          <div class="price">₩5,500</div>
+        </div>
+        <p class="desc">Spicy cajun-seasoned, crisp and golden.</p>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <h3>Tenders</h3>
+          <div class="price">₩5,500</div>
+        </div>
+        <p class="desc">Crispy chicken tenders, served on the side.</p>
+      </div>
+
+      <div class="menu-category">Drinks</div>
+
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <h3>Soft Drink</h3>
+          <div class="price">₩2,000</div>
+        </div>
+        <p class="desc">Ask about today's selection.</p>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <h3>Glass Wine</h3>
+          <div class="price">From ₩7,000</div>
+        </div>
+        <p class="desc">A different glass wine featured every week.</p>
       </div>
 
     </div>
@@ -313,6 +385,7 @@
 
 <!-- ============ VISIT / CONTACT ============ -->
 <footer id="visit">
+  <img class="footer-illustration" src="images/chick-doodle-2.jpg" alt="Hand-drawn illustration of the Poki Chick mascot with a burger and a glass of wine">
   <div class="wrap visit-inner">
     <div class="eyebrow">Visit</div>
     <h2>Find Us</h2>
